@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Guillaume PLATRET</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: #333;
+        }
+
+        .cv-container {
+            width: 800px;
+            background: #fff;
+            box-shadow: 0 0 15px rgba(0,0,0,0.15);
+            display: flex;
+            min-height: 1100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Left Sidebar */
+        .sidebar {
+            width: 32%;
+            background-color: #38a39d;
+            color: white;
+            padding: 0 0 30px 0;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .profile-img-container {
+            width: 100%;
+            height: 220px;
+            padding: 15px;
+            background-color: #fff;
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 2px;
+        }
+
+        .sidebar-content {
+            padding: 30px 20px;
+            font-size: 13.5px;
+            line-height: 1.6;
+        }
+
+        .sidebar-item {
+            margin-bottom: 25px;
+        }
+
+        .sidebar-item label {
+            display: block;
+            font-size: 14px;
+            color: #e0f2f1;
+            margin-bottom: 2px;
+        }
+
+        .sidebar-item a {
+            color: white;
+            text-decoration: none;
+            word-break: break-all;
+        }
+
+        .sidebar-item a:hover {
+            text-decoration: underline;
+        }
+
+        .sidebar-item .bold-text {
+            font-weight: bold;
+        }
+
+        /* Right Content Area */
+        .main-content {
+            width: 68%;
+            padding: 0 0 30px 0;
+            background: #fff;
+        }
+
+        /* Header */
+        .header {
+            padding: 25px 30px 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .name-title h1 {
+            font-size: 32px;
+            color: #d96b27;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .name-title h2 {
+            font-size: 32px;
+            color: #1a4b70;
+            font-weight: 800;
+            letter-spacing: 1px;
+            margin-top: 2px;
+        }
+
+        .tagline {
+            font-style: italic;
+            color: #d96b27;
+            font-size: 14px;
+            text-align: right;
+            max-width: 220px;
+            line-height: 1.3;
+            margin-top: 5px;
+        }
+
+        /* Banner */
+        .orange-banner {
+            background-color: #d96b27;
+            height: 70px;
+            width: 100%;
+            position: relative;
+            margin-bottom: 25px;
+        }
+
+        .orange-banner::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            border-style: solid;
+            border-width: 0 0 70px 60px;
+            border-color: transparent transparent #fff transparent;
+        }
+
+        /* Section Styling */
+        .section {
+            padding: 0 30px;
+            margin-bottom: 20px;
+        }
+
+        .section-header {
+            background-color: #105b63;
+            color: white;
+            padding: 6px 15px;
+            font-size: 15px;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            border-radius: 2px;
+        }
+
+        .section-header.cyan {
+            background-color: #2b908f;
+        }
+
+        .section-header.orange {
+            background-color: #d96b27;
+        }
+
+        .square-icon {
+            width: 12px;
+            height: 12px;
+            background-color: white;
+            display: inline-block;
+        }
+
+        /* Experience Items */
+        .exp-item {
+            margin-bottom: 18px;
+            font-size: 13px;
+        }
+
+        .exp-title {
+            color: #105b63;
+            font-size: 13.5px;
+            margin-bottom: 5px;
+        }
+
+        .exp-title strong {
+            font-weight: 700;
+        }
+
+        .exp-list {
+            list-style-type: disc;
+            padding-left: 18px;
+            color: #555;
+            line-height: 1.45;
+        }
+
+        .exp-list li {
+            margin-bottom: 3px;
+        }
+
+        /* Education & Skills */
+        .edu-item, .skill-item, .interest-item {
+            font-size: 13px;
+            margin-bottom: 12px;
+            color: #555;
+        }
+
+        .edu-year {
+            color: #777;
+        }
+
+        .edu-school {
+            color: #555;
+        }
+
+        .edu-degree {
+            color: #333;
+            font-weight: 500;
+        }
+
+        .skill-name {
+            color: #2b908f;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .skill-level {
+            font-style: italic;
+            color: #666;
+        }
+
+        .interest-title {
+            color: #d96b27;
+            font-weight: bold;
+            font-size: 13.5px;
+            margin-bottom: 2px;
+        }
+
+        .interest-desc {
+            color: #555;
+        }
+    </style>
+<script type="text/javascript" nonce="cf7e719b8e674639a7b6930ec37" src="//injections.adguard.org?ts=1786628351416&amp;type=content-script&amp;dmn=mail-attachment.googleusercontent.com&amp;url=https%3A%2F%2Fmail-attachment.googleusercontent.com%2Fattachment%2Fu%2F0%2F%3Fui%3D2%26ik%3D5152216957%26attid%3D0.1%26permmsgid%3Dmsg-f%3A1873416450658412606%26th%3D19ffb65609de283e%26view%3Datt%26disp%3Dsafe%26realattid%3Df_msrktrac0%26zw%26saddbat%3DANGjdJ_O0bUJ3CMtwYV5SlAzkkM4z5Wl76gJPU5MGLk8e4Nu0OZcRNai-igX5IrVV8J1pxVag25w0tit5ZZ7Yb7pIk6xOy_ba0P42KkRWkUo1cE-SCAalU7fBsajbqzqxMXSvpTlas8jD6TMHM2ucSu9WHtLlIPqueMu4LU3qszpv_yzw24w6vXtmWxoPZu8vFgA-bMUBw9aF-Q6TNjeqbqaFIRg6GBoSSAP1ZLM-ndnj-Yj2f4AzhMnVmP_haIVsmLfQ3Fg9j3KchNmLUYmQ5WFj2N8i1_gA7dNFHTfJMCIqVLrIXcw8PPuwMz6E7Wg9jLO-afRUSJJ7HufC9BpypmLQf1SH0zoZZgVPzMfplR0R0z9IFDpxW6g3DmljGBNoy4f_lh-BJDcBArrFYUZGG0o6fILvWLq6h4X2XbnO9KPJhESevlNYzUzQZ95f_KA44KEEhjsO-8LHsqiiZaMuVxeniV_nd7i2UUUymoitWkNOrA6upt_PrDBkdTf81hFfIZk6jgTIucb6MjRRbEeP6UBtp3v-OTaahagOTso4lDeqjk20Mm0yl-bbB3tpHqKvBa-lw45Dge6pzn8STbVym0EdvJcDS1hGBNCcZX7lqB1gsiDvxZSD9J3Ead_v_Nq5nMQuRKrnlUh9qlfkpYaiyN8kFGNr0rjHXpDKe0si71J4Y__3cd335zjqKz-XKuD6VM5MEGnTP_cFd4El70-nqP-KnC8ULsddO8V6IA__mNvLdnR-SE_9HkLyKd2kse_SGk2-Kf8_fQ4dlh39UZOxEVKDhtsM3mntaRXp3XgGb2zgXmOqKRMvh_cN4YxO2MA4gYPKeG5Pv7edcwJBR9pvRWRoGByTzaVtYq1fu6Kdgfb6z6aouT-aHzSLV3kt22JV4Lb-A0YCVwU4ViE_mZSibWl-9TzR5UyiKeCTtoxWvm3nOHcUATmQqe7qvK9FhWSPLGKOgDYe1-M3UhyUDw7H8Z1NIJyVCbyzHM4sHrLokwqlhFH8Su9pJsIlX0qH0Y&amp;app=chrome.exe&amp;css=3&amp;js=1&amp;rel=1&amp;rji=1&amp;sbe=1"></script><script type="text/javascript" nonce="cf7e719b8e674639a7b6930ec37" src="//injections.adguard.org?ts=1786628351416&amp;name=AdGuard%20Extra&amp;name=AdGuard%20Popup%20Blocker&amp;type=user-script"></script></head>
+<body>
+
+    <div class="cv-container">
+        <!-- Sidebar Left -->
+        <div class="sidebar">
+            <div class="profile-img-container">
+                <img src="https://via.placeholder.com/200x220?text=Guillaume+PLATRET" alt="Guillaume PLATRET" class="profile-img">
+            </div>
+            
+            <div class="sidebar-content">
+                <div class="sidebar-item">
+                    <label>Email</label>
+                    <a href="mailto:guillaume@platret.net">guillaume@platret.net</a>
+                </div>
+
+                <div class="sidebar-item">
+                    <label>Né le</label>
+                    <span class="bold-text">17/06/1980</span><br>
+                    <span>42 ans</span>
+                </div>
+
+                <div class="sidebar-item">
+                    <span>Marié - 2 enfants</span>
+                </div>
+
+                <div class="sidebar-item">
+                    <span>Permis</span>
+                </div>
+
+                <div class="sidebar-item" style="margin-top: 30px;">
+                    <a href="https://linkedin.com/in/platretguillaume/" target="_blank">linkedin.com/in/<br>platretguillaume/</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content Right -->
+        <div class="main-content">
+            <!-- Header -->
+            <div class="header">
+                <div class="name-title">
+                    <h1>Guillaume</h1>
+                    <h2>PLATRET</h2>
+                </div>
+                <div class="tagline">
+                    Professionnel, Rigoureux, Au cœur de l'actualité
+                </div>
+            </div>
+
+            <!-- Orange Decorative Banner -->
+            <div class="orange-banner"></div>
+
+            <!-- Expérience professionnelle -->
+            <div class="section">
+                <div class="section-header">
+                    <span>Expérience professionnelle</span>
+                    <span class="square-icon"></span>
+                </div>
+
+                <div class="exp-item">
+                    <div class="exp-title">
+                        <em>Depuis Juin 04</em> • <strong>Ville de Paray-le-Monial</strong> • <strong>Responsable du service DSI</strong>
+                    </div>
+                    <ul class="exp-list">
+                        <li>Création et mise en place du service de la DSI</li>
+                        <li>Installation, paramétrage, administration, supervision et maintenance de l'ensemble du parc informatique.</li>
+                        <li>Mise en place d'outils de sécurité informatique et de processus liés aux cyberattaques.</li>
+                        <li>Garantir la continuité du service informatique et télécoms.</li>
+                        <li>Gestion du budget et travail en équipe au sein du service.</li>
+                    </ul>
+                </div>
+
+                <div class="exp-item">
+                    <div class="exp-title">
+                        <em>Septembre 02 – Juin 04</em> • <strong>Axytrans</strong> • <strong>Technicien Hot Line</strong>
+                    </div>
+                    <ul class="exp-list">
+                        <li>Installation du matériel sécurisé dans des banques,</li>
+                        <li>Formation du personnel bancaire aux manipulations,</li>
+                        <li>Assistance téléphonique au personnel bancaire ainsi qu'aux convoyeurs de fonds.</li>
+                    </ul>
+                </div>
+
+                <div class="exp-item">
+                    <div class="exp-title">
+                        <em>Février 02 – Septembre 02</em> • <strong>Partner Informatique</strong> • <strong>Technicien réseau</strong>
+                    </div>
+                    <ul class="exp-list">
+                        <li>Maintenance préventive et dépannages divers : micro-ordinateurs, imprimantes,</li>
+                        <li>Equipement, installation, déploiement et paramétrage de micro-ordinateur et réseau.</li>
+                        <li>Administration et maintenance de parcs informatique.</li>
+                    </ul>
+                </div>
+
+                <div class="exp-item">
+                    <div class="exp-title">
+                        <em>Aout 01 – Février 02</em> • <strong>CIS Rhône Alpes</strong> • <strong>Technicien réseau</strong>
+                    </div>
+                    <ul class="exp-list">
+                        <li>Maintenance préventive et dépannages divers.</li>
+                        <li>Equipement, installation et paramétrage de micro-ordinateur.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Formation -->
+            <div class="section">
+                <div class="section-header cyan">
+                    <span>Formation</span>
+                    <span class="square-icon"></span>
+                </div>
+
+                <div class="edu-item">
+                    <div class="edu-year">2001 - Lycée Lamartine</div>
+                    <div class="edu-degree">BTS, option Administrateur de réseaux.</div>
+                </div>
+
+                <div class="edu-item">
+                    <div class="edu-year">1999 – Lycée Lamartine</div>
+                    <div class="edu-degree">BAC Tertiaire, Informatique de Gestion</div>
+                </div>
+            </div>
+
+            <!-- Compétences -->
+            <div class="section">
+                <div class="section-header cyan">
+                    <span>Compétences</span>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-name">Anglais</div>
+                    <div class="skill-level">Intermédiaire</div>
+                </div>
+            </div>
+
+            <!-- Centres d'intérêt -->
+            <div class="section">
+                <div class="section-header orange">
+                    <span>Centres d'intérêt</span>
+                </div>
+
+                <div class="interest-item">
+                    <div class="interest-title">Association</div>
+                    <div class="interest-desc">Pratique de la trompette en orchestre.</div>
+                </div>
+
+                <div class="interest-item">
+                    <div class="interest-title">Sport</div>
+                    <div class="interest-desc">Pratique de la course à pied (Marathon, Trail, Ultra Trail,...)</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
